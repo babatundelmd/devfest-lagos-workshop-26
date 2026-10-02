@@ -1,0 +1,58 @@
+{
+  "talks": [
+    {
+      "id": "1",
+      "title": "Signals, Resources, and Signal Forms: Composing Modern Angular End-to-End",
+      "speaker": "Babatunde",
+      "track": "Web",
+      "level": "Intermediate",
+      "duration": 60,
+      "abstract": "A hands-on workshop where we build a small CRUD app with signals for state, resources for data loading and Signal Forms for input and validation."
+    },
+    {
+      "id": "2",
+      "title": "On-Device AI with Gemini Nano on Android",
+      "speaker": "Tunde Bakare",
+      "track": "AI",
+      "level": "Intermediate",
+      "duration": 45,
+      "abstract": "Run generative AI directly on the phone. When on-device beats the cloud, and how to ship it to real users on real devices."
+    },
+    {
+      "id": "3",
+      "title": "Offline-First Flutter Apps for Low-Bandwidth Markets",
+      "speaker": "Funmi Adeyemi",
+      "track": "Mobile",
+      "level": "Intermediate",
+      "duration": 45,
+      "abstract": "Sync strategies, conflict resolution and UX patterns for apps that must keep working when the network does not."
+    },
+    {
+      "id": "4",
+      "title": "Serverless on Cloud Run: From Zero to Scale",
+      "speaker": "Zainab Bello",
+      "track": "Cloud",
+      "level": "Beginner",
+      "duration": 30,
+      "abstract": "Deploy containers without managing servers, and scale from zero to thousands of requests per second without changing your code."
+    },
+    {
+      "id": "5",
+      "title": "Accessibility Is a Feature",
+      "speaker": "Ngozi Uche",
+      "track": "Web",
+      "level": "Beginner",
+      "duration": 30,
+      "abstract": "Live screen reader demos, the most common mistakes, and quick wins that make your product usable by everyone who opens it."
+    },
+    {
+      "id": "6",
+      "title": "Building Agents with the Agent Development Kit",
+      "speaker": "Yusuf Lawal",
+      "track": "AI",
+      "level": "Advanced",
+      "duration": 60,
+      "abstract": "Design, test and deploy multi-step agents with ADK and Gemini, with guardrails you can actually trust in production."
+    }
+  ]
+}

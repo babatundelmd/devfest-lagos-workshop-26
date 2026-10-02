@@ -1,0 +1,66 @@
+<a routerLink="/" class="back">← All talks</a>
+
+<h1>{{ isEdit() ? 'Edit talk' : 'New talk' }}</h1>
+
+@if (talk.error()) {
+  <div class="alert" role="alert">
+    <p>We couldn't find that talk.</p>
+    <a routerLink="/" class="btn">Back to all talks</a>
+  </div>
+} @else if (talk.isLoading()) {
+  <div class="card" aria-busy="true">
+    <div class="skeleton" style="block-size: 2.5rem"></div>
+    <div class="skeleton" style="block-size: 2.5rem"></div>
+    <div class="skeleton" style="block-size: 8rem"></div>
+  </div>
+} @else {
+  <form>
+
+    <!-- field title -->
+
+<!-- field speaker -->
+
+    <div class="row">
+      <div class="field">
+        <label for="track">Track</label>
+        <select id="track" [formField]="form.track">
+          @for (track of tracks; track track) {
+            <option [value]="track">{{ track }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="level">Level</label>
+        <select id="level" [formField]="form.level">
+          @for (level of levels; track level) {
+            <option [value]="level">{{ level }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="duration">Minutes</label>
+        <input id="duration" type="number" step="5" [formField]="form.duration" />
+      </div>
+    </div>
+    <app-field-error [field]="form.duration()" />
+
+    <div class="field">
+      <label for="abstract">Abstract</label>
+      <textarea id="abstract" rows="5" [formField]="form.abstract"></textarea>
+      <app-field-error [field]="form.abstract()" />
+    </div>
+
+    @for (error of form().errors(); track $index) {
+      <p class="server-error" role="alert">{{ error.message }}</p>
+    }
+
+    <div class="actions">
+      <button type="submit" class="btn primary" [disabled]="form().submitting()">
+        {{ form().submitting() ? 'Saving…' : isEdit() ? 'Save changes' : 'Create talk' }}
+      </button>
+      <a routerLink="/" class="btn">Cancel</a>
+    </div>
+  </form>
+}

@@ -1,0 +1,74 @@
+<header class="page-header">
+  <div>
+    <h1>Talks</h1>
+    <p class="lede">
+      @if (talks.isLoading()) {
+        Loading…
+      } @else {
+        {{ filtered().length }} of {{ talks.value().length }} talks
+      }
+    </p>
+  </div>
+  <a routerLink="/talks/new" class="btn primary">+ New talk</a>
+</header>
+
+<div class="filters">
+  <input
+    type="search"
+    placeholder="Search by title or speaker…"
+    aria-label="Search talks"
+    [value]="query()"
+    (input)="query.set($any($event.target).value)"
+  />
+  <div class="chips" role="group" aria-label="Track">
+    @for (option of trackOptions; track option) {
+      <button
+        type="button"
+        class="chip"
+        [attr.aria-pressed]="track() === option"
+        (click)="track.set(option)"
+      >
+        {{ option }}
+      </button>
+    }
+  </div>
+</div>
+
+@if (talks.error()) {
+  <div class="alert" role="alert">
+    <p>Could not load talks. Is the API running?</p>
+    <button type="button" class="btn" (click)="talks.reload()">Try again</button>
+  </div>
+} @else if (talks.isLoading() && talks.value().length === 0) {
+  <ul class="list" aria-busy="true">
+    @for (i of [1, 2, 3]; track i) {
+      <li class="skeleton"></li>
+    }
+  </ul>
+} @else {
+  <ul class="list">
+    @for (talk of filtered(); track talk.id) {
+      <li class="row">
+        <div class="info">
+          <a [routerLink]="['/talks', talk.id]" class="title">{{ talk.title }}</a>
+          <p class="meta">
+            <span class="track" [attr.data-track]="talk.track">{{ talk.track }}</span>
+            {{ talk.speaker }} · {{ talk.level }} · {{ talk.duration }} min
+          </p>
+        </div>
+        <div class="actions">
+          <a [routerLink]="['/talks', talk.id]" class="btn">Edit</a>
+          <button type="button" class="btn danger" (click)="delete(talk)">Delete</button>
+        </div>
+      </li>
+    } @empty {
+      <li class="empty">
+        @if (talks.value().length) {
+          No talks match your search.
+        } @else {
+          No talks yet. <a routerLink="/talks/new">Add the first one.</a>
+        }
+      </li>
+    }
+  </ul>
+}

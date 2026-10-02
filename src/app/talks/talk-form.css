@@ -1,0 +1,22 @@
+.back { display: inline-block; margin-bottom: 1rem; color: var(--text-muted); text-decoration: none; }
+.back:hover { color: var(--text); }
+h1 { margin: 0 0 1.5rem; }
+.card {
+  display: grid; gap: 1.25rem; padding: 1.5rem;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+}
+.field { display: grid; gap: .375rem; min-width: 0; }
+label { font-weight: 600; font-size: .9375rem; }
+textarea { resize: vertical; }
+.row { display: grid; grid-template-columns: 1fr 1fr 8rem; gap: 1rem; }
+.row + app-field-error { margin-top: -1rem; }
+.actions { display: flex; gap: .75rem; }
+.server-error { margin: 0; color: var(--red); }
+.alert {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1rem 1.25rem; border-radius: var(--radius);
+  border: 1px solid color-mix(in oklab, var(--red) 40%, transparent);
+  background: color-mix(in oklab, var(--red) 8%, var(--surface));
+}
+.alert p { margin: 0; }
+@media (max-width: 40rem) { .row { grid-template-columns: 1fr; } }

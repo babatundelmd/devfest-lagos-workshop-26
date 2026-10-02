@@ -1,0 +1,14 @@
+header {
+  block-size: 4rem; padding: 0 1rem;
+  display: flex; align-items: center;
+  max-inline-size: var(--max-w); margin: 0 auto;
+}
+.brand { display: flex; align-items: center; gap: .625rem; font-weight: 800; color: var(--text); text-decoration: none; }
+.brand span:last-child { font-weight: 500; color: var(--text-muted); }
+.logo { display: grid; grid-template-columns: repeat(2, .5rem); gap: 2px; }
+.logo i { display: block; inline-size: .5rem; block-size: .5rem; border-radius: 2px; }
+.logo i:nth-child(1) { background: var(--blue); }
+.logo i:nth-child(2) { background: var(--red); }
+.logo i:nth-child(3) { background: var(--yellow); }
+.logo i:nth-child(4) { background: var(--green); }
+main { max-inline-size: var(--max-w); margin: 0 auto; padding: 1rem 1rem 4rem; }
