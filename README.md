@@ -1,4 +1,4 @@
-# DevFest Ado-Ekiti 2026: Call for Talks
+# DevFest Lagos 2026: Call for Talks
 
 The workshop app for **Signals, Resources, and Signal Forms: Composing Modern Angular End-to-End**.
 
